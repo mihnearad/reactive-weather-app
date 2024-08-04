@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from 'date-fns';
+import thermometerGif from '/root/weather-app/src/assets/Thermometer.gif';
+import globe from '/root/weather-app/src/assets/around-the-world-nobg.gif';
 
 function App() {
   const [data, setData] = useState({});
@@ -9,6 +11,9 @@ function App() {
   const [animationKey, setAnimationKey] = useState(0);
   const [formattedTime, setFormattedTime] = useState(null);
   const [backgroundClass, setBackgroundClass] = useState("background-Clear"); // Default background
+  const [isLoading, setIsLoading] = useState(false);
+
+
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=ca49a4bbd137100d10c9dc44fb8670f3`;
 
@@ -36,9 +41,11 @@ function App() {
     }, 50);
   };
 
+  //Fix the damn time function
+
   useEffect(() => {
     if (data.dt && data.timezone !== undefined) {
-      const utcDate = new Date((data.dt-7200) * 1000); // Convert epoch time to a Date object in milliseconds
+      const utcDate = new Date((data.dt - 7200) * 1000); // Convert epoch time to a Date object in milliseconds
       const localDate = new Date(utcDate.getTime() + data.timezone * 1000); // Adjust for timezone in milliseconds
       const formatted = format(localDate, 'MMM d, yyyy h:mm a'); // Format the local time
       setFormattedTime(formatted);
@@ -77,11 +84,13 @@ function App() {
     <div className={`app ${backgroundClass}`}>
       <div className="search">
         <input
+
           value={location}
           onChange={event => setLocation(event.target.value)}
           onKeyPress={searchLocation}
           placeholder="Enter location"
           type="text" />
+
       </div>
       <div className={`container ${animate ? "fade-in" : ""}`} key={animationKey}>
         {data.name && (
@@ -90,13 +99,15 @@ function App() {
               <p>{data.name}</p>
             </div>
             <div className="temp">
-              {data.main && <h1>{data.main.temp.toFixed()}°C</h1>}
+              <h1>
+                {data.main.temp.toFixed()}°C
+              </h1>
             </div>
             <div className="description">
               {data.weather && <p>{data.weather[0].main}</p>}
             </div>
             <div className="time">
-              {formattedTime && <div className="time"><p>{formattedTime}</p></div>}
+              {formattedTime && <div className="time"> Last Update (local time):<p>{formattedTime}</p></div>}
             </div>
           </div>
         )}
