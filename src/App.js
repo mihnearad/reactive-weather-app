@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from 'date-fns';
-import thermometerGif from '/root/weather-app/src/assets/Thermometer.gif';
-import globe from '/root/weather-app/src/assets/around-the-world-nobg.gif';
 
 function App() {
   const [data, setData] = useState({});
