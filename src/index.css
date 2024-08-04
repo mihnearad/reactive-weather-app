@@ -52,6 +52,11 @@ h1 {
   background: rgba(255, 255, 255, 0.1);
   color: #f8f8f8;
   transition: 0.5s;
+  padding-left: 20px; /* Adjust this value to ensure text does not overlap the icon */
+  background-image: url("/root/weather-app/src/assets/around-the-world-nobg.gif"); /* Update with your actual icon path */
+  background-repeat: no-repeat;
+  background-position: 230px center;
+  background-size: 40px; /* You can adjust this depending on the size of your icon */
 }
 
 .app input:focus,
@@ -60,6 +65,11 @@ h1 {
   border: 2px solid #f8f8f8;
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
+  padding-left: 20px; /* Adjust this value to ensure text does not overlap the icon */
+  background-image: url("/root/weather-app/src/assets/around-the-world-nobg.gif"); /* Update with your actual icon path */
+  background-repeat: no-repeat;
+  background-position: 230px center;
+  background-size: 40px; /* You can adjust this depending on the size of your icon */
 }
 
 ::placeholder {
@@ -76,8 +86,8 @@ h1 {
   background-size: cover;
   z-index: -1; /* Ensures it stays behind the content */
   filter: blur(3px) brightness(50%); /* Adjust the blur and brightness levels here */
+  transition: background-image 0.7s ease-in-out; /* Smooth transition for background image change */
 }
-
 
 .container {
   max-width: 700px;
@@ -106,7 +116,7 @@ h1 {
 }
 
 .time {
-  margin-top:12px;
+  margin-top: 12px;
   font-size: 2rem;
 }
 
@@ -139,8 +149,6 @@ h1 {
   font-weight: 700;
 }
 
-
-
 @keyframes textFadeIn {
   0% {
     opacity: 0;
@@ -155,28 +163,28 @@ h1 {
   height: 0;
 }
 
-
 .background-Clear::before,
 .background-Clouds::before,
 .background-Rain::before,
 .background-Sunny::before {
   background-size: cover;
   filter: blur(7px) brightness(60%);
-  transform: scale(1.1)
+  transform: scale(1.1);
+  transition: background-image 0.7s ease-in-out;
 }
 
 .background-Clear::before {
-  background-image: url('/root/weather-app/src/assets/Sunny.jpg');
+  background-image: url("/root/weather-app/src/assets/Sunny.jpg");
 }
 
 .background-Clouds::before {
-  background-image: url('/root/weather-app/src/assets/Cloudy.jpg');
+  background-image: url("/root/weather-app/src/assets/Cloudy.jpg");
 }
 
 .background-Rain::before {
-  background-image: url('/root/weather-app/src/assets/Rainy.jpg');
+  background-image: url("/root/weather-app/src/assets/Rainy.jpg");
 }
 
 .background-Sunny::before {
-  background-image: url('/root/weather-app/src/assets/Sunny.jpg');
+  background-image: url("/root/weather-app/src/assets/Sunny.jpg");
 }
