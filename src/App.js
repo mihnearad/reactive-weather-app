@@ -10,7 +10,7 @@ function App() {
   const [animate, setAnimate] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const [formattedTime, setFormattedTime] = useState(null);
-  const [backgroundClass, setBackgroundClass] = useState("background-Clear"); // Default background
+  const [backgroundClass, setBackgroundClass] = useState("background-Default"); // Default background
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -50,28 +50,31 @@ function App() {
       const formatted = format(localDate, 'MMM d, yyyy h:mm a'); // Format the local time
       setFormattedTime(formatted);
 
-      // Set background class based on weather conditions
-      if (data.weather && data.weather.length > 0) {
-        const mainWeather = data.weather[0].main;
-        switch (mainWeather) {
-          case 'Clear':
-            setBackgroundClass('background-Clear');
-            break;
-          case 'Clouds':
-            setBackgroundClass('background-Clouds');
-            break;
-          case 'Rain':
-            setBackgroundClass('background-Rain');
-            break;
-          case 'Sunny':
-            setBackgroundClass('background-Sunny');
-            break;
-          default:
-            setBackgroundClass('background-Clear'); // Default or unknown weather conditions
-            break;
+      if (data.weather) {
+        if (data.weather.length > 0) {
+          const mainWeather = data.weather[0].main;
+          switch (mainWeather) {
+            case 'Clear':
+              setBackgroundClass('background-Clear');
+              break;
+            case 'Clouds':
+              setBackgroundClass('background-Clouds');
+              break;
+            case 'Rain':
+              setBackgroundClass('background-Rain');
+              break;
+            default:
+              setBackgroundClass('background-Default'); // Default for unknown conditions
+              break;
+          }
+        } else {
+          // Handle the case where weather array is present but empty
+          setBackgroundClass('background-Default');
         }
+      } else {
+        // Handle the case where weather data is not yet fetched or unavailable
+        setBackgroundClass('background-Default');
       }
-
       // Logging the debug information
       console.log("UTC Date:", utcDate);
       console.log("Local Date (Adjusted for Timezone):", localDate);

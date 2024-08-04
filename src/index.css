@@ -166,6 +166,7 @@ h1 {
 .background-Clear::before,
 .background-Clouds::before,
 .background-Rain::before,
+.background-Default::before,
 .background-Sunny::before {
   background-size: cover;
   filter: blur(7px) brightness(60%);
@@ -185,6 +186,6 @@ h1 {
   background-image: url("/root/weather-app/src/assets/Rainy.jpg");
 }
 
-.background-Sunny::before {
-  background-image: url("/root/weather-app/src/assets/Sunny.jpg");
+.background-Default::before {
+  background-image: url("/root/weather-app/src/assets/Default.jpg");
 }
