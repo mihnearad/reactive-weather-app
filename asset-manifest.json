@@ -1,19 +1,18 @@
 {
   "files": {
     "main.css": "/reactive-weather-app/static/css/main.de12aad6.css",
-    "main.js": "/reactive-weather-app/static/js/main.19cee2af.js",
+    "main.js": "/reactive-weather-app/static/js/main.b687c6d2.js",
     "static/media/Rainy.jpg": "/reactive-weather-app/static/media/Rainy.ab3adea25e4450339505.jpg",
     "static/media/Cloudy.jpg": "/reactive-weather-app/static/media/Cloudy.6a3ba5e7b7c8d27c6f42.jpg",
     "static/media/Sunny.jpg": "/reactive-weather-app/static/media/Sunny.90719b523ecc01149ce2.jpg",
     "static/media/Default.jpg": "/reactive-weather-app/static/media/Default.8374b7e8a91c2dfc1e51.jpg",
     "static/media/around-the-world-nobg.gif": "/reactive-weather-app/static/media/around-the-world-nobg.602dd90355db86d62b3c.gif",
-    "static/media/Thermometer.gif": "/reactive-weather-app/static/media/Thermometer.683aee87a6baa127f264.gif",
     "index.html": "/reactive-weather-app/index.html",
     "main.de12aad6.css.map": "/reactive-weather-app/static/css/main.de12aad6.css.map",
-    "main.19cee2af.js.map": "/reactive-weather-app/static/js/main.19cee2af.js.map"
+    "main.b687c6d2.js.map": "/reactive-weather-app/static/js/main.b687c6d2.js.map"
   },
   "entrypoints": [
     "static/css/main.de12aad6.css",
-    "static/js/main.19cee2af.js"
+    "static/js/main.b687c6d2.js"
   ]
 }
