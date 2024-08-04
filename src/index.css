@@ -32,7 +32,7 @@ h1 {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   animation: fadeIn 1s ease-out forwards;
   overflow: hidden;
@@ -54,7 +54,8 @@ h1 {
   transition: 0.5s;
 }
 
-.app input:focus {
+.app input:focus,
+.app input:hover {
   outline: none;
   border: 2px solid #f8f8f8;
   background: rgba(255, 255, 255, 0.2);
@@ -65,19 +66,18 @@ h1 {
   color: #f8f8f8;
 }
 
-.app:before {
+.app::before {
   content: "";
-  background: url("/root/weather-app/src/assets/Background.jpg") no-repeat
-    center center/cover;
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  z-index: -1;
-  filter: brightness(0.5) blur(2px);
-  animation: fadeIn 1s ease-out forwards;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1; /* Ensures it stays behind the content */
+  filter: blur(3px) brightness(50%); /* Adjust the blur and brightness levels here */
 }
+
 
 .container {
   max-width: 700px;
@@ -89,6 +89,13 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .app .top {
@@ -96,6 +103,16 @@ h1 {
   margin: 1rem auto;
   opacity: 0;
   animation: textFadeIn 1s ease-out 0.4s forwards;
+}
+
+.time {
+  margin-top:12px;
+  font-size: 2rem;
+}
+
+.app .temp:hover {
+  transition: 0.5s;
+  color: rgb(210, 210, 210);
 }
 
 .app .description {
@@ -122,16 +139,7 @@ h1 {
   font-weight: 700;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    background-color: #fff;
-  }
-  100% {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-}
+
 
 @keyframes textFadeIn {
   0% {
@@ -145,4 +153,30 @@ h1 {
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+
+.background-Clear::before,
+.background-Clouds::before,
+.background-Rain::before,
+.background-Sunny::before {
+  background-size: cover;
+  filter: blur(7px) brightness(60%);
+  transform: scale(1.1)
+}
+
+.background-Clear::before {
+  background-image: url('/root/weather-app/src/assets/Sunny.jpg');
+}
+
+.background-Clouds::before {
+  background-image: url('/root/weather-app/src/assets/Cloudy.jpg');
+}
+
+.background-Rain::before {
+  background-image: url('/root/weather-app/src/assets/Rainy.jpg');
+}
+
+.background-Sunny::before {
+  background-image: url('/root/weather-app/src/assets/Sunny.jpg');
 }
